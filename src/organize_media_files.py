@@ -239,7 +239,7 @@ def organize_files(src_path, dest_path, files_extensions, filename_suffix=""):
                         if filecmp.cmp(filename, out_filename + '_duplicate', shallow=False):
                             # the old file name exists...skip file
                             os.remove(out_filename + '_duplicate')
-                            if REMOVE_DUPLICATE_FILES
+                            if REMOVE_DUPLICATE_FILES:
                                 os.remove(filename)
                                 num_files_removed += 1
                                 logger.info('Removed duplicate file {}'.format(filename))
@@ -257,7 +257,7 @@ def organize_files(src_path, dest_path, files_extensions, filename_suffix=""):
                                 if filecmp.cmp(filename, out_filename + '_duplicate', shallow=False):
                                     # the old file name exists...skip file
                                     os.remove(out_filename + '_duplicate')
-                                    if REMOVE_DUPLICATE_FILES
+                                    if REMOVE_DUPLICATE_FILES:
                                         os.remove(filename)
                                         num_files_removed += 1
                                         logger.info('Removed duplicate file {}'.format(filename))
