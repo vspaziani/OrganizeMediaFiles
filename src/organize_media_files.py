@@ -244,7 +244,7 @@ def organize_files(src_path, dest_path, files_extensions, filename_suffix=""):
                                 num_files_removed += 1
                                 logger.info('Removed duplicate file {}'.format(filename))
                                 continue
-                            else
+                            else:
                                 num_files_skipped += 1
                                 logger.warning("Skipped file: {}".format(filename))
                                 continue
@@ -262,7 +262,7 @@ def organize_files(src_path, dest_path, files_extensions, filename_suffix=""):
                                         num_files_removed += 1
                                         logger.info('Removed duplicate file {}'.format(filename))
                                         continue
-                                    else
+                                    else:
                                         num_files_skipped += 1
                                         logger.warning("Skipped file: {}".format(filename))
                                         continue
