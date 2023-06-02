@@ -41,6 +41,7 @@ VIDEO_FILENAME_SUFFIX = get_setting("VIDEO_FILENAME_SUFFIX")
 
 # If false copy file and don't remove old file
 REMOVE_OLD_FILES = get_setting("REMOVE_OLD_FILES")
+REMOVE_DUPLICATE_FILES =  = get_setting("REMOVE_DUPLICATE_FILES")
 APPEND_ORIG_FILENAME = get_setting("APPEND_ORIG_FILENAME")
 REMOVE_SPACE_FROM_FILENAME = get_setting("REMOVE_SPACE_FROM_FILENAME")
 # if RENAME_SORTED_FILES=False, use this date format for naming files
@@ -238,9 +239,15 @@ def organize_files(src_path, dest_path, files_extensions, filename_suffix=""):
                         if filecmp.cmp(filename, out_filename + '_duplicate', shallow=False):
                             # the old file name exists...skip file
                             os.remove(out_filename + '_duplicate')
-                            num_files_skipped += 1
-                            logger.warning("Skipped file: {}".format(filename))
-                            continue
+                            if REMOVE_DUPLICATE_FILES
+                                os.remove(filename)
+                                num_files_removed += 1
+                                logger.info('Removed duplicate file {}'.format(filename))
+                                continue
+                            else
+                                num_files_skipped += 1
+                                logger.warning("Skipped file: {}".format(filename))
+                                continue
                         else:
                             # new dest path but old filename, file duplicate i the destination
                             out_filename = out_filepath + os.sep + file
@@ -250,10 +257,15 @@ def organize_files(src_path, dest_path, files_extensions, filename_suffix=""):
                                 if filecmp.cmp(filename, out_filename + '_duplicate', shallow=False):
                                     # the old file name exists...skip file
                                     os.remove(out_filename + '_duplicate')
-                                    num_files_skipped += 1
-                                    logger.warning("Skipped file: {}".format(filename))
-                                    continue
-
+                                    if REMOVE_DUPLICATE_FILES
+                                        os.remove(filename)
+                                        num_files_removed += 1
+                                        logger.info('Removed duplicate file {}'.format(filename))
+                                        continue
+                                    else
+                                        num_files_skipped += 1
+                                        logger.warning("Skipped file: {}".format(filename))
+                                        continue
                     # copy the file to the organised structure
                     shutil.copy2(filename, out_filename)
                     if filecmp.cmp(filename, out_filename, shallow=False):
