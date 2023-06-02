@@ -41,7 +41,7 @@ VIDEO_FILENAME_SUFFIX = get_setting("VIDEO_FILENAME_SUFFIX")
 
 # If false copy file and don't remove old file
 REMOVE_OLD_FILES = get_setting("REMOVE_OLD_FILES")
-REMOVE_DUPLICATE_FILES =  = get_setting("REMOVE_DUPLICATE_FILES")
+REMOVE_DUPLICATE_FILES = get_setting("REMOVE_DUPLICATE_FILES")
 APPEND_ORIG_FILENAME = get_setting("APPEND_ORIG_FILENAME")
 REMOVE_SPACE_FROM_FILENAME = get_setting("REMOVE_SPACE_FROM_FILENAME")
 # if RENAME_SORTED_FILES=False, use this date format for naming files
